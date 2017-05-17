@@ -52,17 +52,20 @@ for y = 1:size(fileName,1)
           
 end
 
-% 检测日期（是否重复、是否为时间序列）
+% 检测日期（是否重复、日期和号数是否为时间序列）
 [ d ] = checkDateFun( Adata );
 
-% 检查A表基本格式
+% 检查A表基本格式及内容
 [ a ] = checkAtabFun( Adata );
 
- % 检测A、B表的黑子群个数是否相等
- [ g ] = checkGroupNumFun( Adata,Bdata );         
+% 检查B表格式
+[ b ] = checkBtabFun( Bdata );
+
+% 检测A、B表的黑子群个数是否相等
+[ g ] = checkGroupNumFun( Adata,Bdata );
           
- % 检测A、B表的黑子数是否相等
- [ s ] = checkSunspotNumFun( Adata,Bdata );         
+% 检测A、B表的黑子数是否相等
+[ s ] = checkSunspotNumFun( Adata,Bdata );
           
  %%检测黑子的相关性（同一个黑子在不同日期的变化）
 

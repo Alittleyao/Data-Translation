@@ -88,10 +88,19 @@ for i = 1:Arow
     %判断gN、gS、fN、fS、RN、RS、R、Vesibility
     if k10 == 0 || k11 == 0 || k12 == 0 || k13 == 0 || k14 == 0 || k15 == 0 || k17 == 0 || k18 == 0
         a = 1;
-        fprintf('错误！错误年份;%d   第10-15/17-18个数据错误\n\n',Adata(i,2));
+        fprintf('错误！错误年份：%d   第10-15/17-18个数据错误\n\n',Adata(i,2));
     end
     
-end
+    if i>1 && abs(Adata(i,6)-Adata(i-1,6))>1 && (abs(Adata(i,2)-Adata(i-1,2))<3 || abs(Adata(i,6)-Adata(i-1,6))>abs(Adata(i,2)-Adata(i-1,2))*0.5)
+        fprintf('错误！错误年份：%d  P值（第6个数据）错误:%d\n\n',Adata(i,2),Adata(i,6))
+    end
+    
+    if i>1 && abs(Adata(i,7)-Adata(i-1,7))>1 && (abs(Adata(i,2)-Adata(i-1,2))<3 || abs(Adata(i,7)-Adata(i-1,7))>abs(Adata(i,2)-Adata(i-1,2))*0.3)
+        fprintf('错误！错误年份：%d  Bo值（第7个数据）错误:%d\n\n',Adata(i,2),Adata(i,7))
+    end
+    
+    
+end 
 
 % fclose(WfileID);
 

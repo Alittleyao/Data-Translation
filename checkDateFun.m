@@ -24,12 +24,11 @@ for i = 1:size(temp,1)
     end
 end
 
-%判断日期是否为时间序列
+%判断号数、日期是否为时间序列
 for j = 2:size(Adata,1)
-    if Adata(j,2) - Adata(j-1,2) < 0
+    if Adata(j,1) - Adata(j-1,1) < 0 || Adata(j,2) - Adata(j-1,2) < 0
         fprintf('日期错误为：%d\n\n',Adata(j,2))
     end
 end
 
 end
-
