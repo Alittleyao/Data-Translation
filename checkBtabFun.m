@@ -25,7 +25,7 @@ for i = 1:Brow
     if k1 == 0 || length(date) ~= 8 || str2num(date(1:4))<1957 ||  str2num(date(1:4))>2015 ...
        || str2num(date(5:6))<1 || str2num(date(5:6))>12 || str2num(date(7:8))<1 || str2num(date(7:8))>31
          a = 1;
-         fprintf('错误！错误年份;%d   第二个数据（日期）错误，数据如下：%d\n\n',Adata(i,2),Adata(i,2));
+         fprintf('错误！错误年份;%d   第一个数据（日期）错误，数据如下：%d\n\n',Bdata(i,1),Bdata(i,1));
     end
     
     %判断黑子号、半径、黑子数

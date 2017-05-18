@@ -27,29 +27,15 @@ for y = 1:size(fileName,1)
       
       %%读取B表
       if fileName(y,1) == 'B'
-          %读取b表内容
+          %读取B表内容
           Bdata = importBtabFun(['E:/sunspots/Data/表格格式/全部数据/',deblank(fileName(y,:))]);
-          
-%           %%检测黑子号、半径、黑子数均为正整数
-%           for i = 1:size(Bdata,1)
-%               [ b1 ] = checkInt( Bdata(i,2) );
-%               [ b2 ] = checkInt( Bdata(i,8) );
-%               [ b3 ] = checkInt( Bdata(i,9) );
-%               
-%               if b1 == 0
-%                   fprintf('黑子号错误：%d，错误年份为：%d\n\n',Bdata(i,2),Bdata(i,1))
-%               end
-%               
-%               if b2 == 0
-%                   fprintf('黑子半径错误：%d，错误年份为：%d\n\n',Bdata(i,8),Bdata(i,1))
-%               end
-%               
-%               if b3 == 0
-%                   fprintf('黑子个数错误：%d，错误年份为：%d\n\n',Bdata(i,9),Bdata(i,1))
-%               end   
-%           end
       end
           
+      %%读取排序后的B表
+      if strcmp(fileName(y,1:3),'New') == 1
+          %读取排序后的B表内容
+          NewBdata = importBtabFun(['E:/sunspots/Data/表格格式/全部数据/',deblank(fileName(y,:))]);
+      end
 end
 
 % 检测日期（是否重复、日期和号数是否为时间序列）
@@ -58,7 +44,7 @@ end
 % 检查A表基本格式及内容
 [ a ] = checkAtabFun( Adata );
 
-% 检查B表格式
+% 检查B表基本格式
 [ b ] = checkBtabFun( Bdata );
 
 % 检测A、B表的黑子群个数是否相等
@@ -67,5 +53,5 @@ end
 % 检测A、B表的黑子数是否相等
 [ s ] = checkSunspotNumFun( Adata,Bdata );
           
- %%检测黑子的相关性（同一个黑子在不同日期的变化）
-
+% 检测黑子的相关性（同一个黑子在不同日期的变化）
+[ bs ] = checkBSFun( NewBdata );
