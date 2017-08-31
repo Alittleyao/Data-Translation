@@ -31,7 +31,7 @@ for i = 1:Brow
     %判断黑子号、半径、黑子数
     if k2 == 0 || k8 == 0 || k9 == 0
         b =1;
-        fprintf('错误！错误年份：%d 第2/8/9个数据错误\n\n',Bdata(i,1));
+        fprintf('错误！错误年份：%d  错误黑子号：%d  第2/8/9个数据错误\n\n',Bdata(i,1),Bdata(i,2));
     end
 
 end

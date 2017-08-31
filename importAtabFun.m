@@ -1,27 +1,27 @@
-function Adata = importAtabFun(filename, startRow, endRow)
+function Adata1 = importfile(filename, startRow, endRow)
 %IMPORTFILE 将文本文件中的数值数据作为矩阵导入。
-%   ADATA = IMPORTFILE(FILENAME) 读取文本文件 FILENAME 中默认选定范围的数据。
+%   ADATA1 = IMPORTFILE(FILENAME) 读取文本文件 FILENAME 中默认选定范围的数据。
 %
-%   ADATA = IMPORTFILE(FILENAME, STARTROW, ENDROW) 读取文本文件 FILENAME 的
+%   ADATA1 = IMPORTFILE(FILENAME, STARTROW, ENDROW) 读取文本文件 FILENAME 的
 %   STARTROW 行到 ENDROW 行中的数据。
 %
 % Example:
-%   Adata = importfile('196301-Adata.csv', 1, 13);
+%   Adata1 = importfile('Adata.csv', 2, 15334);
 %
 %    另请参阅 TEXTSCAN。
 
-% 由 MATLAB 自动生成于 2017/01/01 19:55:37
+% 由 MATLAB 自动生成于 2017/08/04 10:27:36
 
 %% 初始化变量。
 delimiter = ',';
 if nargin<=2
-    startRow = 1;
+    startRow = 2;
     endRow = inf;
 end
 
 %% 将数据列作为字符串读取:
 % 有关详细信息，请参阅 TEXTSCAN 文档。
-formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
+formatSpec = '%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%q%[^\n\r]';
 
 %% 打开文本文件。
 fileID = fopen(filename,'r');
@@ -48,7 +48,7 @@ for col=1:length(dataArray)-1
 end
 numericData = NaN(size(dataArray{1},1),size(dataArray,2));
 
-for col=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+for col=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
     % 将输入元胞数组中的字符串转换为数值。已将非数值字符串替换为 NaN。
     rawData = dataArray{col};
     for row=1:size(rawData, 1);
@@ -84,4 +84,4 @@ R = cellfun(@(x) ~isnumeric(x) && ~islogical(x),raw); % 查找非数值元胞
 raw(R) = {NaN}; % 替换非数值元胞
 
 %% 创建输出变量
-Adata = cell2mat(raw);
+Adata1 = cell2mat(raw);

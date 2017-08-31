@@ -55,3 +55,4 @@ end
           
 % 检测黑子的相关性（同一个黑子在不同日期的变化）
 [ bs ] = checkBSFun( NewBdata );
+

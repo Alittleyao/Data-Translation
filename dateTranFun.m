@@ -1,5 +1,5 @@
 function [ number ] = dateTranFun( date)
-%dateTranFun 以天为单位，根据日期判断与起始日期1981年1月1日的距离
+%dateTranFun 以天为单位，根据日期判断与起始日期1955年1月1日的距离
 %   date：实际日期
 dateStr = num2str(date);
 year = str2num(dateStr(1:4));
@@ -8,11 +8,11 @@ day = str2num(dateStr(7:8));
 monthDay = [31 28 31 30 31 30 31 31 30 31 30 31];
 number = 0;
 
-%起始年份为1981年
-if year == 1981
+%起始年份为1955年
+if year == 1955
     [ number ] = judgeYearFun ( year,month,day );
 else
-    for i = 1981:year
+    for i = 1955:year
         %当年年份
         if i == year 
            [ number2 ] = judgeYearFun ( year,month,day );

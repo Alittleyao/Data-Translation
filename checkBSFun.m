@@ -1,13 +1,13 @@
 function [ bs ] = checkBSFun( NewBdata )
 %checkBSFun 检查同一个黑子在不同日期的变化
 
-savePath = 'E:/sunspots/Data/Doc Format/错误反馈';
-mkdir(savePath)
-AfileID = fopen([savePath,'/','Adata.txt'],'w');
-BfileID = fopen([savePath,'/','Bdata.txt'],'w');
-CfileID = fopen([savePath,'/','Cdata.txt'],'w');
-DfileID = fopen([savePath,'/','Ddata.txt'],'w');
-EfileID = fopen([savePath,'/','Edata.txt'],'w');
+% savePath = 'E:/sunspots/Data/Doc Format/错误反馈';
+% mkdir(savePath)
+% AfileID = fopen([savePath,'/','Adata.txt'],'w');
+% BfileID = fopen([savePath,'/','Bdata.txt'],'w');
+% CfileID = fopen([savePath,'/','Cdata.txt'],'w');
+% DfileID = fopen([savePath,'/','Ddata.txt'],'w');
+% EfileID = fopen([savePath,'/','Edata.txt'],'w');
 
 bs = 0;
 
@@ -34,10 +34,10 @@ for i = 2:Brow
 end
 
 
-fclose(AfileID);
-fclose(BfileID);
-fclose(CfileID);
-fclose(DfileID);
-fclose(EfileID);
+% fclose(AfileID);
+% fclose(BfileID);
+% fclose(CfileID);
+% fclose(DfileID);
+% fclose(EfileID);
 
 end

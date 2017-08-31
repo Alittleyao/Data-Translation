@@ -1,21 +1,21 @@
-function Bdata = importBtabFun(filename, startRow, endRow)
+function Bdata2 = importfile(filename, startRow, endRow)
 %IMPORTFILE 将文本文件中的数值数据作为矩阵导入。
-%   BDATA = IMPORTFILE(FILENAME) 读取文本文件 FILENAME 中默认选定范围的数据。
+%   BDATA2 = IMPORTFILE(FILENAME) 读取文本文件 FILENAME 中默认选定范围的数据。
 %
-%   BDATA = IMPORTFILE(FILENAME, STARTROW, ENDROW) 读取文本文件 FILENAME 的
+%   BDATA2 = IMPORTFILE(FILENAME, STARTROW, ENDROW) 读取文本文件 FILENAME 的
 %   STARTROW 行到 ENDROW 行中的数据。
 %
 % Example:
-%   Bdata = importfile('Bdata.csv', 1, 45323);
+%   Bdata2 = importfile('Bdata.csv', 2, 89263);
 %
 %    另请参阅 TEXTSCAN。
 
-% 由 MATLAB 自动生成于 2017/01/03 11:29:52
+% 由 MATLAB 自动生成于 2017/08/04 10:43:02
 
 %% 初始化变量。
 delimiter = ',';
 if nargin<=2
-    startRow = 1;
+    startRow = 2;
     endRow = inf;
 end
 
@@ -84,4 +84,4 @@ R = cellfun(@(x) ~isnumeric(x) && ~islogical(x),raw); % 查找非数值元胞
 raw(R) = {NaN}; % 替换非数值元胞
 
 %% 创建输出变量
-Bdata = cell2mat(raw);
+Bdata2 = cell2mat(raw);
